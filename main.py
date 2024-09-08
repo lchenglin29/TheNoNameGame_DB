@@ -29,7 +29,6 @@ def get_data(name):
 
 @app.route('/write_js/<name>', methods=['POST'])
 def save_data(name):
-  # 从请求中获取数据，例如：data = request.get_json()
   try:
     af_data = request.get_json()
     write_js(name,af_data)
@@ -37,9 +36,6 @@ def save_data(name):
   except Exception as e:
         app.logger.error(f"Error processing request: {e}")
         return "Internal Server Error", 500
-  # 处理保存数据的逻辑
-  # 保存数据到文件或数据库
-  # 返回响应，例如：return jsonify({'message': 'Data saved successfully'})
 
 @app.route('/',methods=['GET'])
 def main():
